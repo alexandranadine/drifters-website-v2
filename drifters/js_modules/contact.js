@@ -37,14 +37,15 @@ function createContact() {
   contactContainer.appendChild(contactContent);
   contactContainer.appendChild(mapContainer);
   contactContainer.appendChild(contactSocials);
-  initMap();
+  initMap()
 
   contactTitle.innerHTML = "<h2>get in touch</h2><h1>contact</h1><hr>";
-  contactContent.innerHTML = `<p>Located at 25848 Tournament Rd, Valencia, CA<br>Give us a call: <a href="tel:+16612522471">(661)252-2471</a></p>`;
+  contactContent.innerHTML = `<p>Located at 25848 Tournament Rd, Valencia, CA<p>Give us a call: <a href="tel:+16612522471">(661)252-2471</a></p></p>`;
   contactSocials.innerHTML = `<a href="https://www.instagram.com/drifterscocktails" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
   <a href="https://www.facebook.com/drifterscocktails" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
   <a href="mailto:drifterscocktails@gmail.com"><i class="fa-regular fa-envelope"></i></a>`
 }
+
 
 export default function loadContact() {
   const main = document.querySelector("main");

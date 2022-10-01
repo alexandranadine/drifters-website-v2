@@ -2,7 +2,7 @@ import loadAbout from "./about";
 import loadContact from "./contact";
 import loadEvents from "./events";
 import loadHome from "./home";
-import loadMenu from "./menu";
+import { loadMenu } from "./menu";
 import loadRes from "./reservations";
 
 const container = document.querySelector("#app");

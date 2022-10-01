@@ -1,3 +1,6 @@
+import loadACModal from "./artCrawModal";
+import loadWeeklyModal from "./weeklyModal";
+
 function createEvents() {
   const main = document.querySelector("main");
 
@@ -15,9 +18,15 @@ function createEvents() {
 
   const weeklyButton = document.createElement("button");
   weeklyButton.textContent = "Weekly Events"
+  weeklyButton.addEventListener('click', () => {
+    loadWeeklyModal()
+  })
 
   const artCrawlButton = document.createElement("button");
   artCrawlButton.textContent = "Art Crawl"
+  artCrawlButton.addEventListener('click', () => {
+    loadACModal()
+  })
 
   const eventCTO = document.createElement("div");
   eventCTO.classList.add("call-to-action");

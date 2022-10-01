@@ -1,3 +1,7 @@
+import loadBeerModal from "./beerMenuModal";
+import loadDrinkModal from "./drinkMenuModal";
+import loadFoodModal from "./foodMenuModal";
+
 function createMenu() {
   const main = document.querySelector("main");
 
@@ -8,28 +12,36 @@ function createMenu() {
   menuContent.classList.add("content");
 
   const menuTitle = document.createElement("div");
-  menuTitle.setAttribute('id', 'menu')
   menuTitle.classList.add("title");
 
   const menuBtnGroup = document.createElement("div");
-  menuBtnGroup.classList.add('menu-buttons')
+  menuBtnGroup.classList.add("menu-buttons");
 
   const foodButton = document.createElement("button");
-  foodButton.textContent = "Food"
+  foodButton.textContent = "Food";
+  foodButton.addEventListener('click', () => {
+    loadFoodModal()
+  })
 
   const drinkButton = document.createElement("button");
-  drinkButton.textContent = "Cocktails"
+  drinkButton.textContent = "Cocktails";
+  drinkButton.addEventListener('click', () => {
+    loadDrinkModal()
+  })
 
   const beerButton = document.createElement("button");
-  beerButton.textContent = "Beer"
+  beerButton.textContent = "Beer";
+  beerButton.addEventListener('click', () => {
+    loadBeerModal()
+  })
 
   main.appendChild(menuContainer);
   menuContainer.appendChild(menuTitle);
   menuContainer.appendChild(menuContent);
-  menuContainer.appendChild(menuBtnGroup)
-  menuBtnGroup.appendChild(foodButton)
-  menuBtnGroup.appendChild(drinkButton)
-  menuBtnGroup.appendChild(beerButton)
+  menuContainer.appendChild(menuBtnGroup);
+  menuBtnGroup.appendChild(foodButton);
+  menuBtnGroup.appendChild(drinkButton);
+  menuBtnGroup.appendChild(beerButton);
 
   menuTitle.innerHTML = `<h2>damn good eats</h2>
   <h1>the menu</h1>
@@ -38,7 +50,7 @@ function createMenu() {
 
 }
 
-export default function loadMenu() {
+export function loadMenu() {
   const main = document.querySelector("main");
   main.textContent = "";
   main.appendChild(createMenu());

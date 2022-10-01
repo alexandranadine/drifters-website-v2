@@ -2,7 +2,9 @@
 $primary: rgb(216, 136, 17);
 $primary-hover: rgb(253, 168, 40);
 $white: rgb(255, 255, 255);
+$light-grey: rgb(204, 204, 204);
 $white-low-op: rgba(255, 255, 255, 0.2);
+$white-hi-op: rgba(255, 255, 255, 0.4);
 $black-low-op: rgba(0, 0, 0, 0.4);
 $black-hi-op: rgba(0, 0, 0, 0.7);
 
@@ -17,6 +19,12 @@ $black-hi-op: rgba(0, 0, 0, 0.7);
 
 @mixin fadeInAnimation {
   animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@mixin fadeInAnimationModal {
+  animation: fadeInAnimation ease 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -43,6 +51,14 @@ body {
 
 a {
   color: $white;
+}
+
+p {
+  font-family: proxima-nova, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 1.5px;
+  color: $light-grey;
 }
 
 h1 {
@@ -73,7 +89,7 @@ h3 {
 hr {
   width: 100%;
   border: none;
-  border-bottom: 1px solid gainsboro;
+  border-bottom: 1px solid $white-hi-op;
 }
 
 // ------------------ NAVIGATION STYLES ------------------ //
@@ -102,7 +118,6 @@ header {
 
 button {
   border: none;
-  font-family: "Segoe UI Semibold";
   font-weight: 600;
   letter-spacing: 2px;
   color: $white;
@@ -194,7 +209,7 @@ button {
   }
 }
 
-// ------------------ PAGE STYLES ------------------ //
+// ------------------ COMMON PAGE STYLES ------------------ //
 
 .container {
   display: flex;
@@ -220,7 +235,6 @@ button {
   align-items: center;
   width: 100%;
   @include fadeInAnimation;
-  // border: 1px solid red;
 
   h1 {
     margin: 0;
@@ -240,7 +254,10 @@ button {
   align-items: center;
   width: 100%;
   @include fadeInAnimation;
-  // border: 1px solid red;
+
+  p {
+    margin: 0.5rem 0 0.5rem 0;
+  }
 
   h3 {
     color: $white;
@@ -263,7 +280,6 @@ button {
   gap: 1rem;
   padding: 1rem 0;
   @include fadeInAnimation;
-  // border: 1px solid red;
 
   button {
     background-color: $primary;
@@ -276,44 +292,10 @@ button {
 
     &:hover {
       background-color: $primary-hover;
-     
+      transform: scale(1.01);
     }
   }
 }
-
-// #menu {
-//   h1 {
-//     position: relative;
-
-//     &::before {
-//       display: block;
-//       content: "";
-//       background-image: url("./svg/deco-left-min.svg");
-//       background-size: 75px 75px;
-//       height: 75px;
-//       width: 75px;
-//       position: absolute;
-//       top: 20px;
-//       left: -60px;
-//       filter: invert(100%);
-//       transform: rotate(5deg);
-//     }
-
-//     &::after {
-//       display: block;
-//       content: "";
-//       background-image: url("./svg/deco-right-min.svg");
-//       background-size: 75px 75px;
-//       height: 75px;
-//       width: 75px;
-//       position: absolute;
-//       top: 10px;
-//       left: 525px;
-//       filter: invert(100%);
-//       transform: rotate(5deg);
-//     }
-//   }
-// }
 
 .event-buttons {
   button {
@@ -337,6 +319,7 @@ button {
 }
 
 .call-to-action {
+  // cto for artcrawl registration
   h3 {
     text-align: center;
     font-size: 1.5rem;
@@ -345,6 +328,85 @@ button {
     @include fadeInAnimation;
   }
 }
+
+// ------------------ SHARED MODAL STYLES ------------------ //
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: rgba(241, 235, 224, 0.911);
+  width: 75vw;
+  height: 65vh;
+  border-radius: 1rem;
+  border: 1px solid $black-low-op;
+  color: #000;
+  overflow: auto;
+  @include fadeInAnimationModal;
+}
+
+.modal-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 4rem 0 4rem;
+  width: 100%;
+  @include fadeInAnimationModal;
+
+  h1 {
+    margin: 0;
+    font-size: 6.5rem;
+  }
+
+  h2 {
+    margin: 0;
+    margin-bottom: -1rem;
+  }
+
+  hr {
+    border-bottom: 1px solid $black-low-op;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4rem 4rem 4rem;
+  width: 100%;
+  @include fadeInAnimationModal;
+
+  p {
+    color: #000;
+  }
+}
+
+.close-modal {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    padding: 0;
+    background-color: transparent;
+    color: rgb(49, 49, 49);
+    line-height: 0.4;
+    transition: 300ms ease;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &::before {
+      display: inline-block;
+      content: "\00d7";
+      font-size: 4rem;
+    }
+  }
+}
+
+// ------------------ MENU MODAL STYLES ------------------ //
+
+// ------------------ EVENT MODAL STYLES ------------------ //
 
 // ------------------ CONTACT STYLES ------------------ //
 #map {
@@ -361,6 +423,55 @@ button {
   font-size: 2rem;
   padding: 1rem 0 0 0;
   @include fadeInAnimation;
+}
+
+// ------------------ RESERVATION STYLES ------------------ //
+.res-input {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 0.5rem;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  .input-group {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  button {
+    margin-top: 1rem;
+    background-color: $primary;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    min-width: 300px;
+    transition: 300ms ease;
+
+    &:hover {
+      background-color: $primary-hover;
+      transform: scale(1.01);
+    }
+  }
 }
 
 // ------------------ FOOTER STYLES ------------------ //
