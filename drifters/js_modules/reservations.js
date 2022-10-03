@@ -14,6 +14,7 @@ function createRes() {
 
   main.appendChild(resContainer);
   resContainer.appendChild(resTitle)
+
   resContainer.appendChild(resContent)
  
 
@@ -22,7 +23,6 @@ function createRes() {
   <hr>`;
   resContent.appendChild(loadResForm())
 
-  // resContent.innerHTML = `<p>Putting a form in here</p>`;
 }
 
 export default function loadRes() {

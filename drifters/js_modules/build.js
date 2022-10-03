@@ -97,7 +97,7 @@ function createFooter() {
   container.appendChild(footer);
   const footerContainer = document.createElement("div");
   footer.appendChild(footerContainer);
-  footerContainer.classList.add('footer-links')
+  footerContainer.classList.add("footer-links");
   footerContainer.innerHTML = `<a href="https://www.instagram.com/drifterscocktails" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
   <a href="https://www.facebook.com/drifterscocktails" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
   <a href="mailto:drifterscocktails@gmail.com"><i class="fa-regular fa-envelope"></i></a>
